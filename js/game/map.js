@@ -3,17 +3,17 @@
 export default class Map {
   constructor(ctx) {
     this.ctx = ctx;
-    this.x = 1000;
-    this.y = 1000;
+    this.x = 900;
+    this.y = 900;
 
-    this.makeMap = this.makeMap.bind(this);
+    this.drawMap = this.drawMap.bind(this);
   }
 
   drawMap() {
     const ctx = this.ctx;
-    
+
     ctx.clearRect(0, 0, this.x, this.y);
-    ctx.fillStyle = 'green';
+    ctx.fillStyle = 'darkgreen';
     ctx.fillRect(0, 0, this.x, this.y);
   }
 }

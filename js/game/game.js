@@ -9,6 +9,10 @@ class Game {
     this.boxes = [];
   }
 
+  drawAll() {
+    return this.map.drawMap();
+  }
+
   addSheep() {
 
   }
@@ -42,3 +46,5 @@ class Game {
     //if game timer has time left and all sheeps are dead, farmers win
   }
 }
+
+export default Game;
