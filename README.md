@@ -22,12 +22,12 @@ Farmers just have to kill all the sheeps to win. For more overview information, 
     * Attacks sheep and their barricades/objects
 
 ## MVP
-  - [] Create renderable game map
-  - [] Create sheep and farmer models
-  - [] Create objects that will populate the map
-  - [] Use vector library to create moveable models and objects
-  - [] Set win conditions
-  - [] Styling game to look amazing and play smoothly
+  - [ ] Create renderable game map
+  - [ ] Create sheep and farmer models
+  - [ ] Create objects that will populate the map
+  - [ ] Use vector library to create moveable models and objects
+  - [ ] Set win conditions
+  - [ ] Styling game to look amazing and play smoothly
 
 ## Architecture and Technologies
   * Vanilla Javascript for basic game logic
@@ -48,28 +48,34 @@ Farmers just have to kill all the sheeps to win. For more overview information, 
 ## Implementation Timeline
     
 10/29/18
-  - [] Plan, write, and submit sheep tag proposal.
+  - [ ] Plan, write, and submit sheep tag proposal.
+
 10/30/18
-  - [] Read up on how to use canvas from javascript curriculum and app academy online
-  - [] Create game repo skeleton and project folder
-  - [] Create game map and render
+  - [ ] Read up on how to use canvas from javascript curriculum and app academy online
+  - [ ] Create game repo skeleton and project folder
+  - [ ] Create game map and render
+
 10/31/18
-  - [] Create sheep and farmer model with basic functionality
-  - [] Implement AI computer farmers that will hunt down players
-  - [] Create objects (ie walls, boxes, farm) that obey collision
+  - [ ] Create sheep and farmer model with basic functionality
+  - [ ] Implement AI computer farmers that will hunt down players
+  - [ ] Create objects (ie walls, boxes, farm) that obey collision
+
 11/1/18
-  - [] Render sheep, farmer, and object models
-  - [] Implement timer/clock countdown for win condition
-  - [] Play game to find in-game bugs
+  - [ ] Render sheep, farmer, and object models
+  - [ ] Implement timer/clock countdown for win condition
+  - [ ] Play game to find in-game bugs
+
 11/2/18
-  - [] Play more to find more bugs
-  - [] Fix game bugs
-  - [] Improve model look
-  - [] Style page
+  - [ ] Play more to find more bugs
+  - [ ] Fix game bugs
+  - [ ] Improve model look
+  - [ ] Style page
+
 11/3/18
-  - [] Check over MVPs and complete as necessary
-  - [] Create more object models with unique qualities to improve gameplay
-  - [] Add new objects into the game and test for bugs
+  - [ ] Check over MVPs and complete as necessary
+  - [ ] Create more object models with unique qualities to improve gameplay
+  - [ ] Add new objects into the game and test for bugs
+  
 11/4/18
-  - [] Game test and finish up project
-  - [] Find a server to store production game.
+  - [ ] Game test and finish up project
+  - [ ] Find a server to store production game.
