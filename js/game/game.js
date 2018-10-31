@@ -1,8 +1,9 @@
 import Map from './map.js';
 
 class Game {
-  constructor() {
-    this.map = new Map();
+  constructor(ctx) {
+    this.ctx = ctx;
+    this.map = new Map(ctx);
     this.farmers = [];
     this.sheeps = [];
     this.boxes = [];
