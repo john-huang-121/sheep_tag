@@ -10,13 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
   canvas.height = 900;
   const ctx = canvas.getContext("2d");
 
-  
-  // ctx.clearRect(0, 0, 900, 900);
-  // ctx.fillStyle = 'darkgreen';
-  // ctx.fillRect(0, 0, 900, 900);
+  let game = new Game(ctx, 1, 1).drawAll();
 
-  let game = new Game(ctx).drawAll();
-    
+
     // Add the image to our existing div.
     // var myIcon = new Image();
     // myIcon.src = Icon;

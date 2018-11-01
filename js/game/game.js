@@ -1,16 +1,23 @@
 import Map from './map.js';
+import Sheep from '../models/sheep.js';
+import Farmer from '../models/farmer.js';
 
 class Game {
-  constructor(ctx) {
+  constructor(ctx, sheep_num, farmer_num) {
     this.ctx = ctx;
     this.map = new Map(ctx);
-    this.farmers = [];
-    this.sheeps = [];
-    this.boxes = [];
+    this.farmers = new Farmer(ctx);
+    this.sheeps = new Sheep(ctx);
+    // this.farmers = new Array(farmer_num);
+    // this.sheeps = new Array(sheep_num);
+    this.boxes = null;
+
+    this.drawAll = this.drawAll.bind(this);
   }
 
   drawAll() {
-    return this.map.drawMap();
+    this.map.drawMap();
+    this.sheeps.drawMove1();
   }
 
   addSheep() {
