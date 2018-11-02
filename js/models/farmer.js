@@ -1,6 +1,7 @@
 import MovingObject from '../actions/moving_object.js';
 
-class Farmer extends MovingObject {
+
+class Farmer {
   constructor(ctx) {
     this.ctx = ctx;
     this.player = null;

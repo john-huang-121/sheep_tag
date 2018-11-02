@@ -1,7 +1,8 @@
 import MovingObject from '../actions/moving_object.js';
 import Box from './box.js';
+const Victor = require("victor");
 
-class Sheep extends MovingObject {
+class Sheep {
   constructor(ctx) {
     this.ctx = ctx;
     this.player = null;
@@ -11,13 +12,25 @@ class Sheep extends MovingObject {
     this.alive = true;
     this.health = 100;
     this.damage = 1;
+    this.x = 100;
+    this.y = 100;
+    this.count = 1;
+
   }
 
   drawSheep() {
-    const ctx = this.ctx;
-
+    if (this.count % 2 === 0) {
+      this.drawMove1();
+    } else {
+      this.drawMove2();
+    }
+    this.count += 1;
   }
 
+  moveSheep(moveX, moveY) {
+    this.x += moveX;
+    this.y += moveY;
+  }
   alive() {
     //checks living status
   }
@@ -41,97 +54,97 @@ class Sheep extends MovingObject {
 
     ctx.fillStyle = "white";
     ctx.beginPath();
-    ctx.ellipse(100, 100, 20, 25, Math.PI / 2, 0, Math.PI * 2);
+    ctx.ellipse(this.x, this.y, 20, 25, Math.PI / 2, 0, Math.PI * 2);
     ctx.closePath();
     ctx.fill();
 
     ctx.fillStyle = "black";
     ctx.beginPath();
-    ctx.ellipse(130, 95, 8, 11, Math.PI / 2, 0, Math.PI * 2);
+    ctx.ellipse(this.x + 30, this.y - 5, 8, 11, Math.PI / 2, 0, Math.PI * 2);
     ctx.closePath();
     ctx.fill();
 
     ctx.fillStyle = "white";
     ctx.beginPath();
-    ctx.ellipse(128, 88, 6, 9, Math.PI / 2, 0, Math.PI * 2);
+    ctx.ellipse(this.x + 28, this.y - 12, 6, 9, Math.PI / 2, 0, Math.PI * 2);
     ctx.closePath();
     ctx.fill();
 
     ctx.beginPath();
     ctx.strokeStyle = "black";
-    ctx.moveTo(123, 108);
-    ctx.lineTo(132, 115);
+    ctx.moveTo(this.x + 23, this.y + 8);
+    ctx.lineTo(this.x + 32, this.y + 15);
     ctx.lineWidth = 5;
     ctx.stroke();
 
     ctx.beginPath();
     ctx.strokeStyle = "black";
-    ctx.moveTo(77, 108);
-    ctx.lineTo(65, 112);
+    ctx.moveTo(this.x - 23, this.y + 8);
+    ctx.lineTo(this.x - 35, this.y + 12);
     ctx.lineWidth = 5;
     ctx.stroke();
 
     ctx.beginPath();
     ctx.strokeStyle = "black";
-    ctx.moveTo(117, 114);
-    ctx.lineTo(127, 120);
+    ctx.moveTo(this.x + 17, this.y + 14);
+    ctx.lineTo(this.x + 27, this.y + 20);
     ctx.lineWidth = 5;
     ctx.stroke();
 
     ctx.beginPath();
     ctx.strokeStyle = "black";
-    ctx.moveTo(82, 114);
-    ctx.lineTo(72, 120);
+    ctx.moveTo(this.x - 18, this.y + 14);
+    ctx.lineTo(this.x - 28, this.y + 20);
     ctx.lineWidth = 5;
     ctx.stroke();
   }
 
   drawMove2() {
     const ctx = this.ctx;
-
     ctx.beginPath();
     ctx.strokeStyle = "black";
-    ctx.moveTo(123, 108);
-    ctx.lineTo(123, 115);
+
+    ctx.moveTo(this.x + 23, this.y + 8);
+    ctx.lineTo(this.x + 23, this.y + 15);
     ctx.lineWidth = 5;
     ctx.stroke();
 
     ctx.beginPath();
     ctx.strokeStyle = "black";
-    ctx.moveTo(77, 108);
-    ctx.lineTo(77, 115);
+    ctx.moveTo(this.x - 23, this.y + 8);
+    ctx.lineTo(this.x - 23, this.y + 15);
     ctx.lineWidth = 5;
     ctx.stroke();
 
     ctx.fillStyle = "white";
     ctx.beginPath();
-    ctx.ellipse(100, 100, 20, 25, Math.PI / 2, 0, Math.PI * 2);
+    ctx.ellipse(this.x, this.y, 20, 25, Math.PI / 2, 0, Math.PI * 2);
     ctx.closePath();
     ctx.fill();
 
     ctx.fillStyle = "black";
     ctx.beginPath();
-    ctx.ellipse(130, 95, 8, 11, Math.PI / 2, 0, Math.PI * 2);
+    ctx.ellipse(this.x + 30, this.y - 5, 8, 11, Math.PI / 2, 0, Math.PI * 2);
     ctx.closePath();
     ctx.fill();
 
     ctx.fillStyle = "white";
     ctx.beginPath();
-    ctx.ellipse(128, 88, 6, 9, Math.PI / 2, 0, Math.PI * 2);
+    ctx.ellipse(this.x + 28, this.y - 12, 6, 9, Math.PI / 2, 0, Math.PI * 2);
     ctx.closePath();
     ctx.fill();
 
     ctx.beginPath();
     ctx.strokeStyle = "black";
-    ctx.moveTo(117, 114);
-    ctx.lineTo(117, 125);
+    ctx.moveTo(this.x + 17, this.y + 14);
+    ctx.lineTo(this.x + 17, this.y + 25);
     ctx.lineWidth = 5;
     ctx.stroke();
 
     ctx.beginPath();
     ctx.strokeStyle = "black";
-    ctx.moveTo(82, 114);
-    ctx.lineTo(82, 125);
+    ctx.moveTo(this.x - 18, this.y + 14);
+    ctx.lineTo(this.x - 18, this.y + 25);
     ctx.lineWidth = 5;
     ctx.stroke();
   }

@@ -20,11 +20,13 @@ export default class Box {
     ctx.fillRect(100, 100, 100, 100);
     ctx.strokeRect(100, 100, 100, 100);
     ctx.strokeRect(110, 110, 80, 80);
+
     ctx.beginPath();
     ctx.strokeStyle = "black";
     ctx.moveTo(110, 110);
     ctx.lineTo(190, 190);
     ctx.stroke();
+    
     ctx.beginPath();
     ctx.strokeStyle = "black";
     ctx.moveTo(190, 110);
