@@ -1,3 +1,39 @@
-.hello {
-  color: red;
+body {
+  display: flex;
+  flex-direction: row;
+}
+
+.control-div {
+  display: flex;
+  flex-direction: column;
+  border: 1px dashed;
+  margin: 100px;
+  padding: 0 200px;
+}
+
+.movement-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movement-top-box {
+  display: flex;
+}
+
+.movement-bottom-box {
+  display: flex;
+}
+
+.move-box {
+  margin: 0 0;
+  width: 20px;
+  height: 17px;
+}
+
+.move-box p {
+  display: block;
+  text-align: center;
+  border: 1px solid black;
+  margin: 0;
 }
