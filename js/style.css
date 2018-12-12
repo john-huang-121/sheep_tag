@@ -5,10 +5,15 @@ body {
 
 .control-div {
   display: flex;
+  align-items: center;
   flex-direction: column;
   border: 1px dashed;
   margin: 100px;
   padding: 0 200px;
+}
+
+.control-div > p {
+  font-size: 20px;
 }
 
 .movement-controls {
