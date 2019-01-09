@@ -1,5 +1,7 @@
 # Sheep Tag
 
+[Live Link](https://coconutman19.github.io/sheep_tag/)
+
 ## Background and Overview
 A several years ago I came across this gem of a game in a custom game lobby that was a a combination of survival,      collaboration, and stimulating. This was one of the games that inspired me to get into gaming, so I want to honor this game by recreating a simple javascript game and sharing this experience with other players.
 
@@ -8,7 +10,7 @@ A several years ago I came across this gem of a game in a custom game lobby that
 + The objective of the game for sheeps is to survive for a set amount of time by building barricades and preventing farmers from killing them. Once killed, the dead sheep is sent to a jail in the center where teammates can rescue them.
 Farmers just have to kill all the sheeps to win. For more overview information, refer to the link below:
 
-(sheep tag wiki)[http://sheeptag.wikia.com/wiki/Sheep_Tag_Wiki]
+[sheep tag wiki](http://sheeptag.wikia.com/wiki/Sheep_Tag_Wiki)
 
 ## Functionality
   * Game:
