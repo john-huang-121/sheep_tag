@@ -1,0 +1,1 @@
+//create scoreboard to keep track of score or money?
