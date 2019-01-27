@@ -12,17 +12,18 @@ class Game {
     this.boxes = [];
     this.occupied = [];
 
-    this.setupStartingPos = this.setupStartingPos.bind(this);
+    this.setupGame = this.setupGame.bind(this);
     this.drawAll = this.drawAll.bind(this);
   }
  
-  setupStartingPos() {
+  setupGame() {
     this.map.grid[0][0] = this.sheeps;
+    this.sheeps.drawStartingSheep();
   }
 
-  drawAll() {
+  drawAll(pressedKey) {
     this.map.drawMap();
-    this.sheeps.drawSheep();
+    this.sheeps.drawMovingSheep(pressedKey);
     this.boxes.forEach((box) => 
       box.drawBox()
     );
@@ -65,7 +66,6 @@ class Game {
         
       }
       
-      console.log(this.map.grid);
       this.sheeps.moveSheep(
         moves[pressedKey][0],
         moves[pressedKey][1]
@@ -80,7 +80,6 @@ class Game {
           new Box(ctx, this.sheeps.x + 50, this.sheeps.y - 20)
         ])
 
-        // console.log(this.boxes[this.boxes.length - 1]);
         this.occupied = this.occupied.concat([
           [this.sheeps.x + 50,
             this.sheeps.y - 20, "box", 50]
@@ -88,8 +87,9 @@ class Game {
         }
       }
       
+      // console.log(this.map.grid);
 
-      this.drawAll(); //rerender effect
+      this.drawAll(pressedKey); //rerender effect
     }
         
   objectOccupied(x, y) {

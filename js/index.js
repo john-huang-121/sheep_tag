@@ -12,14 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
   
   let game = new Game(ctx, 1, 1);
   game.drawAll();
-  game.setupStartingPos();
+  game.setupGame();
   window.addEventListener("keypress", (e) => game.mapKey(e));
 
-    // Add the image to our existing div.
-    // var myIcon = new Image();
-    // myIcon.src = Icon;
-  
-    // element.appendChild(myIcon);
-  
   }
 );

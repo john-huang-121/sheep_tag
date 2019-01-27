@@ -18,13 +18,19 @@ class Sheep {
 
   }
 
-  drawSheep() {
-    if (this.count % 2 === 0) {
-      this.drawMove1();
-    } else {
-      this.drawMove2();
+  drawStartingSheep() {
+    this.drawMove2();
+  }
+
+  drawMovingSheep(pressedKey) {
+    if (pressedKey === 100) {
+      if (this.count % 2 === 0) {
+        this.drawMove1();
+      } else {
+        this.drawMove2();
+      }
+      this.count += 1;
     }
-    this.count += 1;
   }
 
   moveSheep(moveX, moveY) {

@@ -64,7 +64,7 @@ export default class Map {
     ctx.fillStyle = 'darkgreen';
     ctx.fillRect(0, 0, this.x, this.y);
 
-    //testing purposes
+    //testing purposes to see rendered tiles
     ctx.clearRect(0, 0, 90, 90);
     ctx.fillStyle = 'red';
     ctx.fillRect(0, 0, 90, 90);
