@@ -15,22 +15,51 @@ class Sheep {
     this.x = 45;
     this.y = 45;
     this.count = 1;
-
   }
 
   drawStartingSheep() {
-    this.drawMove2();
+    this.drawRestingRight();
   }
 
   drawMovingSheep(pressedKey) {
-    if (pressedKey === 100) {
+    //need to set up custom drawings
+    if (pressedKey === 119) {
+      //w
       if (this.count % 2 === 0) {
-        this.drawMove1();
+        this.drawMoveRight();
       } else {
-        this.drawMove2();
+        this.drawRestingRight();
       }
-      this.count += 1;
+    } else if (pressedKey === 97) {
+      //a
+      if (this.count % 2 === 0) {
+        this.drawMoveLeft();
+      } else {
+        this.drawRestingLeft();
+      }
+    } else if (pressedKey === 115) {
+      //s
+      if (this.count % 2 === 0) {
+        this.drawMoveRight();
+      } else {
+        this.drawRestingRight();
+      }
+    } else if (pressedKey === 100) {
+      //d
+      if (this.count % 2 === 0) {
+        this.drawMoveRight();
+      } else {
+        this.drawRestingRight();
+      }
+    } else {
+      if (this.count % 2 === 0) {
+        this.drawMoveRight();
+      } else {
+        this.drawRestingRight();
+      }
     }
+
+    this.count++;
   }
 
   moveSheep(moveX, moveY) {
@@ -42,6 +71,7 @@ class Sheep {
       this.y += moveY;
     }
   }
+
   alive() {
     //checks living status
   }
@@ -60,15 +90,32 @@ class Sheep {
     //else do this.damage to target
   }
 
-  drawMove1() {
+  drawRestingRight() {
     const ctx = this.ctx;
 
+    //legs
+    ctx.beginPath();
+    ctx.strokeStyle = "black";
+    ctx.moveTo(this.x + 23, this.y + 8);
+    ctx.lineTo(this.x + 23, this.y + 15);
+    ctx.lineWidth = 5;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = "black";
+    ctx.moveTo(this.x - 23, this.y + 8);
+    ctx.lineTo(this.x - 23, this.y + 15);
+    ctx.lineWidth = 5;
+    ctx.stroke();
+
+    //body
     ctx.fillStyle = "white";
     ctx.beginPath();
     ctx.ellipse(this.x, this.y, 20, 25, Math.PI / 2, 0, Math.PI * 2);
     ctx.closePath();
     ctx.fill();
 
+    //head
     ctx.fillStyle = "black";
     ctx.beginPath();
     ctx.ellipse(this.x + 30, this.y - 5, 8, 11, Math.PI / 2, 0, Math.PI * 2);
@@ -81,6 +128,46 @@ class Sheep {
     ctx.closePath();
     ctx.fill();
 
+    //legs
+    ctx.beginPath();
+    ctx.strokeStyle = "black";
+    ctx.moveTo(this.x + 17, this.y + 14);
+    ctx.lineTo(this.x + 17, this.y + 25);
+    ctx.lineWidth = 5;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = "black";
+    ctx.moveTo(this.x - 18, this.y + 14);
+    ctx.lineTo(this.x - 18, this.y + 25);
+    ctx.lineWidth = 5;
+    ctx.stroke();
+  }
+
+  drawMoveRight() {
+    const ctx = this.ctx;
+
+    //body
+    ctx.fillStyle = "white";
+    ctx.beginPath();
+    ctx.ellipse(this.x, this.y, 20, 25, Math.PI / 2, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.fill();
+
+    //head
+    ctx.fillStyle = "black";
+    ctx.beginPath();
+    ctx.ellipse(this.x + 30, this.y - 5, 8, 11, Math.PI / 2, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle = "white";
+    ctx.beginPath();
+    ctx.ellipse(this.x + 28, this.y - 12, 6, 9, Math.PI / 2, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.fill();
+
+    //legs
     ctx.beginPath();
     ctx.strokeStyle = "black";
     ctx.moveTo(this.x + 23, this.y + 8);
@@ -110,11 +197,12 @@ class Sheep {
     ctx.stroke();
   }
 
-  drawMove2() {
+  drawRestingLeft() {
     const ctx = this.ctx;
+
+    //legs
     ctx.beginPath();
     ctx.strokeStyle = "black";
-
     ctx.moveTo(this.x + 23, this.y + 8);
     ctx.lineTo(this.x + 23, this.y + 15);
     ctx.lineWidth = 5;
@@ -127,24 +215,27 @@ class Sheep {
     ctx.lineWidth = 5;
     ctx.stroke();
 
+    //body
     ctx.fillStyle = "white";
     ctx.beginPath();
     ctx.ellipse(this.x, this.y, 20, 25, Math.PI / 2, 0, Math.PI * 2);
     ctx.closePath();
     ctx.fill();
 
+    //head
     ctx.fillStyle = "black";
     ctx.beginPath();
-    ctx.ellipse(this.x + 30, this.y - 5, 8, 11, Math.PI / 2, 0, Math.PI * 2);
+    ctx.ellipse(this.x - 30, this.y - 5, 8, 11, Math.PI / 2, 0, Math.PI * 2);
     ctx.closePath();
     ctx.fill();
 
     ctx.fillStyle = "white";
     ctx.beginPath();
-    ctx.ellipse(this.x + 28, this.y - 12, 6, 9, Math.PI / 2, 0, Math.PI * 2);
+    ctx.ellipse(this.x - 28, this.y - 12, 6, 9, Math.PI / 2, 0, Math.PI * 2);
     ctx.closePath();
     ctx.fill();
 
+    //legs
     ctx.beginPath();
     ctx.strokeStyle = "black";
     ctx.moveTo(this.x + 17, this.y + 14);
@@ -156,6 +247,59 @@ class Sheep {
     ctx.strokeStyle = "black";
     ctx.moveTo(this.x - 18, this.y + 14);
     ctx.lineTo(this.x - 18, this.y + 25);
+    ctx.lineWidth = 5;
+    ctx.stroke();
+  }
+
+  drawMoveLeft() {
+    const ctx = this.ctx;
+
+    //body
+    ctx.fillStyle = "white";
+    ctx.beginPath();
+    ctx.ellipse(this.x, this.y, 20, 25, Math.PI / 2, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.fill();
+
+    //head
+    ctx.fillStyle = "black";
+    ctx.beginPath();
+    ctx.ellipse(this.x - 30, this.y - 5, 8, 11, Math.PI / 2, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle = "white";
+    ctx.beginPath();
+    ctx.ellipse(this.x - 28, this.y - 12, 6, 9, Math.PI / 2, 0, Math.PI * 2);
+    ctx.closePath();
+    ctx.fill();
+
+    //legs
+    ctx.beginPath();
+    ctx.strokeStyle = "black";
+    ctx.moveTo(this.x + 23, this.y + 8);
+    ctx.lineTo(this.x + 32, this.y + 15);
+    ctx.lineWidth = 5;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = "black";
+    ctx.moveTo(this.x - 23, this.y + 8);
+    ctx.lineTo(this.x - 35, this.y + 12);
+    ctx.lineWidth = 5;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = "black";
+    ctx.moveTo(this.x + 17, this.y + 14);
+    ctx.lineTo(this.x + 27, this.y + 20);
+    ctx.lineWidth = 5;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.strokeStyle = "black";
+    ctx.moveTo(this.x - 18, this.y + 14);
+    ctx.lineTo(this.x - 28, this.y + 20);
     ctx.lineWidth = 5;
     ctx.stroke();
   }
