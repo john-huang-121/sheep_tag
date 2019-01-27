@@ -12,8 +12,8 @@ class Sheep {
     this.alive = true;
     this.health = 100;
     this.damage = 1;
-    this.x = 100;
-    this.y = 100;
+    this.x = 45;
+    this.y = 45;
     this.count = 1;
 
   }
@@ -28,8 +28,13 @@ class Sheep {
   }
 
   moveSheep(moveX, moveY) {
-    this.x += moveX;
-    this.y += moveY;
+    if (this.x + moveX >= 0 && this.x + moveX <= 900) {
+      this.x += moveX;
+    }
+
+    if (this.y + moveY >= 0 && this.y + moveY <= 900) {
+      this.y += moveY;
+    }
   }
   alive() {
     //checks living status

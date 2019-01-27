@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
   let game = new Game(ctx, 1, 1);
   game.drawAll();
+  game.setupStartingPos();
   window.addEventListener("keypress", (e) => game.mapKey(e));
 
     // Add the image to our existing div.

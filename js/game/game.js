@@ -7,16 +7,19 @@ class Game {
   constructor(ctx) {
     this.ctx = ctx;
     this.map = new Map(ctx);
-    // this.farmers = new Farmer(ctx);
     this.sheeps = new Sheep(ctx);
-    // this.farmers = new Array(farmer_num);
-    // this.sheeps = new Array(sheep_num);
+    // this.farmers = new Farmer(ctx);
     this.boxes = [];
     this.occupied = [];
 
+    this.setupStartingPos = this.setupStartingPos.bind(this);
     this.drawAll = this.drawAll.bind(this);
   }
  
+  setupStartingPos() {
+    this.map.grid[0][0] = this.sheeps;
+  }
+
   drawAll() {
     this.map.drawMap();
     this.sheeps.drawSheep();
@@ -26,47 +29,72 @@ class Game {
   }
 
   mapKey(e) {
-    console.log(e);
-    const ctx = this.ctx;
+    let ctx = this.ctx;
+    let sheepLoc = this.map.whereSheep; 
+    
     const moves = {
-      // "87": [0, -2], //w
-      // "65": [-2, 0], //a
-      // "83": [0, 2], //s
-      // "68": [2, 0], //d
-      "119": [0, -10], //w
-      "97": [-10, 0], //a
-      "115": [0, 10], //s
-      "100": [10, 0], //d
+      "119": [0, -90], //w
+      "97": [-90, 0], //a
+      "115": [0, 90], //s
+      "100": [90, 0], //d
     };
-
+    
     const pressedKey = e.keyCode;
-    if (pressedKey === 119 || pressedKey === 97 ||
-      pressedKey === 115 || pressedKey === 100) {
-        this.sheeps.moveSheep(
+    if (pressedKey === 119 || pressedKey === 97 || pressedKey === 115 || pressedKey === 100) {
+
+      //updates the map grid sheep location
+      if (pressedKey === 119) {
+        sheepLoc = this.map.updateSheepLoc(0, -1);
+        
+        this.map.grid[sheepLoc[1]][sheepLoc[0]] = this.sheeps;
+        
+      } else if (pressedKey === 97) {
+        sheepLoc = this.map.updateSheepLoc(-1, 0);
+        
+        this.map.grid[sheepLoc[1]][sheepLoc[0]] = this.sheeps;
+        
+      } else if (pressedKey === 115) {
+        sheepLoc = this.map.updateSheepLoc(0, 1);
+        
+        this.map.grid[sheepLoc[1]][sheepLoc[0]] = this.sheeps;
+        
+      } else if (pressedKey === 100) {
+        sheepLoc = this.map.updateSheepLoc(1, 0);
+        
+        this.map.grid[sheepLoc[1]][sheepLoc[0]] = this.sheeps;
+        
+      }
+      
+      console.log(this.map.grid);
+      this.sheeps.moveSheep(
         moves[pressedKey][0],
         moves[pressedKey][1]
-      );
-    }
-    console.log(pressedKey);
-    if (pressedKey === 102) {
-      console.log(this.objectOccupied(this.sheeps.x + 50, this.sheeps.y - 20));
-      if (this.objectOccupied(this.sheeps.x + 50, this.sheeps.y - 20)) {
-        this.boxes = this.boxes.concat([
+        );
+      }
+      
+      //build boxes F
+      if (pressedKey === 102) { 
+        console.log(this.objectOccupied(this.sheeps.x + 50, this.sheeps.y - 20));
+        if (this.objectOccupied(this.sheeps.x + 50, this.sheeps.y - 20)) {
+          this.boxes = this.boxes.concat([
           new Box(ctx, this.sheeps.x + 50, this.sheeps.y - 20)
         ])
-      // console.log(this.boxes[this.boxes.length - 1]);
+
+        // console.log(this.boxes[this.boxes.length - 1]);
         this.occupied = this.occupied.concat([
           [this.sheeps.x + 50,
-          this.sheeps.y - 20, "box", 50]
-        ]);
+            this.sheeps.y - 20, "box", 50]
+          ]);
+        }
       }
-    }
-    this.drawAll();
-  }
+      
 
+      this.drawAll(); //rerender effect
+    }
+        
   objectOccupied(x, y) {
     let okayToBuild = true;
-
+    
     this.occupied.forEach((object) => { //up and back
       if (object[2] === "box") {
         if ((x < object[0] - object[3] || x > object[0] + object[3]) || (y < object[1] - object[3] || y > object[1] + object[3])) {
